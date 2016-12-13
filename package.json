@@ -1,0 +1,11 @@
+{
+  "name": "nodeq",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/kritzware/nodeq.git",
+    "type": "git"
+  },
+  "author": "kritzware <suspiciouspotato@gmail.com>",
+  "license": "MIT"
+}
