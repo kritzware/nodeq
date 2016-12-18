@@ -6,7 +6,7 @@
 const nodeq = require('nodeq')
 const queue = new nodeq()
 
-/* Add jobs (id paramater is only for testing) */
+/* Add jobs (id parameter is only for testing) */
 queue.addJob(success, 1)
 queue.addJob(bad, 2)
 queue.addJob(success, 3)
