@@ -19,7 +19,7 @@ NodeQ.prototype.addJob = (job, x) => {
 	}
 }
 
-NodeQ.prototype.run = () => {
+NodeQ.prototype.run = (cb) => {
 	let current = _this.head.next
 	let chain = Promise.resolve()
 
@@ -30,6 +30,9 @@ NodeQ.prototype.run = () => {
 		})
 		current = current.next
 	}
+	chain.then(() => {
+		cb(null, 'done')
+	})
 }
 
 NodeQ.prototype.display = () => {
@@ -41,4 +44,7 @@ NodeQ.prototype.display = () => {
 	}	
 }
 
-module.exports = NodeQ
+module.exports = {
+	Q: NodeQ,
+	Worker: require('./lib/worker')
+}
