@@ -1,29 +1,30 @@
-const NodeQ = require('./index.js')
+const nodeq = require('./index.js')
+const Node = require('./Node.js')
 
-const api_queue = new NodeQ()
+const Q = new nodeq()
 
-api_queue.addJob('wasd')
+function success() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			console.log({name: 'successful job', res: 'result'})
+			resolve()
+		}, 2000)
+	})
+}
 
-// const nodeq = new require('./index')()
+function bad() {
+	return new Promise((resolve, reject) => {
+		setTimeout(() => {
+			console.log({name: 'bad job', res: 'result'})
+			reject('job error')
+		}, 2000)
+	})
+}
 
-// nodeq.addJob('get_api_data', (err, job, res) => {
-	
-// 	getApiData()
-// 	.catch((err) => {
-// 		console.log(err)
-// 	})
-// 	.then(() => {
-// 		console.log('job complete')
-// 		job.done()
-// 	})
-// })
+Q.addJob(success, 1)
+Q.addJob(bad, 2)
+Q.addJob(success, 3)
 
-// nodeq.start({get_api_data: '0 3 * * *'})
+Q.display()
 
-// function getApiData() {
-// 	return new Promise((fulfill, reject) => {
-// 		setTimeout(() => {
-// 			fulfill('api job done')
-// 		}, 2000)
-// 	})
-// }
+Q.run()
