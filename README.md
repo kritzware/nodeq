@@ -34,6 +34,15 @@ Worker.start((err, res, done) => {
 	}
 })
 
+/* Access events through job name hash */
+Worker.on('test_worker:done', (err, res) => {
+	if(!err) {
+		console.log(res)
+	} else {
+		console.log(err)
+	}
+})
+
 /* Example Promise functions used above */
 function success() {
 	return new Promise((resolve, reject) => {
