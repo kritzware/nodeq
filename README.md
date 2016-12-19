@@ -7,18 +7,32 @@ Currently not released as an NPM package. If you wish to run the examples below,
 
 ```javascript
 const nodeq = require('nodeq')
-const queue = new nodeq()
+const Queue = new nodeq.Queue()
+const Worker = new nodeq.Worker()
 
 /* Add jobs (id parameter is only for testing) */
-queue.addJob(success, 1)
-queue.addJob(bad, 2)
-queue.addJob(success, 3)
+Queue.addJob(success, 1)
+Queue.addJob(bad, 2)
+Queue.addJob(success, 3)
 
 /* Display jobs in queue */
-queue.display()
+Queue.display()
 
 /* Start the queue and run jobs */
-queue.run()
+Queue.run()
+
+/* Alternatively, schedule the queue to run at a set time by defining a worker */
+Worker.define('test_worker', {
+	jobs: Queue,
+	every: '* * * * *'
+})
+
+/* Start the worker and listen for the completion event */
+Worker.start((err, res, done) => {
+	if(done) {
+		console('all jobs done, waiting until next event')
+	}
+})
 
 /* Example Promise functions used above */
 function success() {
