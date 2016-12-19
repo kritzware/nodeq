@@ -44,6 +44,15 @@ Worker.start((err, res, done) => {
 	}
 })
 
+Worker.on('test_worker:done', function(err, res) {
+	if(err) {
+		console.log('done error -> ' + err)
+	} else {
+		console.log('event for test_worker')
+		console.log(res)
+	}
+})
+
 // Queue.display()
 
 // Queue.run()
