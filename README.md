@@ -1,4 +1,4 @@
-# nodeq
+# nodeq (UNFINISHED)
 
 ### Usage:
 Currently not released as an NPM package. If you wish to run the examples below, they are already setup in `test.js`
