@@ -39,11 +39,6 @@ for(let i = 0; i < 10; i++) {
   })
 }
 
-Queue.addJob('some_task', async done => {
-  await errorJob()
-  done()
-})
-
 Queue.start('* * * * *')
 
 Queue.on('error', (job, err) => {
