@@ -12,6 +12,7 @@
   "author": "kritzware <suspiciouspotato@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "later": "^1.2.0"
+    "later": "^1.2.0",
+    "redis": "^2.7.1"
   }
 }
