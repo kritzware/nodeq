@@ -46,3 +46,6 @@ Queue.on('error', (job, err) => {
   console.log(err)
 })
 ```
+
+### Dependencies:
+!()[https://ndv.glitch.me/ipfs/js-ipfs.svg?ratio=0.2]
