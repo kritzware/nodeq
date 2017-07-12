@@ -48,4 +48,4 @@ Queue.on('error', (job, err) => {
 ```
 
 ### Dependencies:
-!()[https://ndv.glitch.me/ipfs/js-ipfs.svg?ratio=0.2]
+![](https://ndv.glitch.me/ipfs/js-ipfs.svg?ratio=0.2)
